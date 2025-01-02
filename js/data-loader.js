@@ -3,7 +3,7 @@ class DataLoader {
     static async loadCoaches() {
         try {
             console.log('开始加载教练数据...');
-            const response = await fetch('../data/coaches.json');
+            const response = await fetch('data/coaches.json');
             console.log('fetch 响应状态:', response.status);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
