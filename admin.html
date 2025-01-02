@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教练资料管理 - 盖洛普教练展示平台</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">盖洛普教练管理后台</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">返回首页</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="admin-content">
+        <div class="admin-container">
+            <h1>添加/编辑教练资料</h1>
+            
+            <form id="coachForm" class="coach-form">
+                <div class="form-group">
+                    <label for="name">教练姓名</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="avatar">头像图片</label>
+                    <input type="file" id="avatar" name="avatar" accept="image/*">
+                    <div class="image-preview" id="avatarPreview"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>擅长领域</label>
+                    <div class="specialty-checkboxes">
+                        <label><input type="checkbox" name="specialties" value="领导力"> 领导力</label>
+                        <label><input type="checkbox" name="specialties" value="团队管理"> 团队管理</label>
+                        <label><input type="checkbox" name="specialties" value="个人成长"> 个人成长</label>
+                        <label><input type="checkbox" name="specialties" value="职业发展"> 职业发展</label>
+                        <input type="text" id="newSpecialty" placeholder="添加其他领域">
+                        <button type="button" id="addSpecialty">添加</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>咨询价格</label>
+                    <div class="price-inputs">
+                        <input type="number" id="pricePerHour" name="pricePerHour" placeholder="每小时价格" required>
+                        <span>元/小时</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="introduction">个人介绍</label>
+                    <textarea id="introduction" name="introduction" rows="4" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>成功案例</label>
+                    <div id="casesContainer">
+                        <div class="case-item">
+                            <input type="text" name="caseTitle[]" placeholder="案例标题" required>
+                            <textarea name="caseDescription[]" placeholder="案例描述" required></textarea>
+                        </div>
+                    </div>
+                    <button type="button" id="addCase">添加案例</button>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit">保存教练资料</button>
+                    <button type="button" id="generateJson">生成JSON数据</button>
+                </div>
+            </form>
+
+            <div class="json-output">
+                <h2>生成的JSON数据</h2>
+                <pre id="jsonOutput"></pre>
+                <button id="copyJson">复制JSON</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/admin.js"></script>
+</body>
+</html> 

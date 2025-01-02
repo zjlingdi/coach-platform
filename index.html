@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盖洛普教练展示平台</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">盖洛普教练展示</div>
+            <ul class="nav-menu">
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">关于我们</a></li>
+                <li><a href="#">联系方式</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 搜索筛选区域 -->
+    <section class="filter-section">
+        <div class="filter-container">
+            <div class="filter-group">
+                <h3>擅长领域</h3>
+                <div class="specialty-tags">
+                    <label class="tag"><input type="checkbox" value="领导力">领导力</label>
+                    <label class="tag"><input type="checkbox" value="团队管理">团队管理</label>
+                    <label class="tag"><input type="checkbox" value="个人成长">个人成长</label>
+                    <label class="tag"><input type="checkbox" value="职业发展">职业发展</label>
+                </div>
+            </div>
+            <div class="filter-group">
+                <h3>价格区间</h3>
+                <div class="price-range">
+                    <select id="price-filter">
+                        <option value="all">全部价格</option>
+                        <option value="0-500">500元/小时以下</option>
+                        <option value="500-1000">500-1000元/小时</option>
+                        <option value="1000-2000">1000-2000元/小时</option>
+                        <option value="2000+">2000元/小时以上</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 教练列表展示区 -->
+    <main class="main-content">
+        <div class="coaches-grid">
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 盖洛普教练展示平台 版权所有</p>
+        </div>
+    </footer>
+
+    <script src="js/data-loader.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 

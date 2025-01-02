@@ -1,0 +1,36 @@
+/* 平板设备 */
+@media screen and (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-menu {
+        margin-top: 1rem;
+        gap: 1rem;
+    }
+
+    .coaches-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+/* 移动设备 */
+@media screen and (max-width: 480px) {
+    .nav-menu {
+        flex-direction: column;
+    }
+
+    .specialty-tags {
+        flex-direction: column;
+    }
+
+    .tag {
+        width: 100%;
+        text-align: center;
+    }
+
+    .coaches-grid {
+        grid-template-columns: 1fr;
+    }
+} 
