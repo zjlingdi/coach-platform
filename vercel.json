@@ -1,6 +1,10 @@
 {
   "version": 2,
   "routes": [
+    {
+      "src": "/data/coaches.json",
+      "dest": "/data/coaches.json"
+    },
     { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
