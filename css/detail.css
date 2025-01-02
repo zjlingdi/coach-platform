@@ -1,18 +1,23 @@
+/* 详情页布局 */
 .detail-content {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 2rem auto;
     padding: 0 1rem;
 }
 
+/* 教练资料卡片 */
 .coach-profile {
-    background-color: #fff;
-    border-radius: 10px;
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
     padding: 2rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    margin-bottom: 2rem;
 }
 
+/* 基本信息区域 */
 .profile-header {
-    display: flex;
+    display: grid;
+    grid-template-columns: 200px 1fr;
     gap: 2rem;
     margin-bottom: 2rem;
 }
@@ -20,79 +25,188 @@
 .profile-avatar {
     width: 200px;
     height: 200px;
-    border-radius: 50%;
-    overflow: hidden;
-}
-
-.profile-avatar img {
-    width: 100%;
-    height: 100%;
+    border-radius: var(--border-radius);
     object-fit: cover;
 }
 
-.profile-info {
-    flex: 1;
-}
-
-.profile-name {
-    font-size: 2rem;
-    color: #2c3e50;
+.profile-info h1 {
+    font-size: 1.8rem;
     margin-bottom: 1rem;
+    color: var(--text-primary);
 }
 
 .profile-tags {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
     margin-bottom: 1rem;
 }
 
+.profile-tag {
+    padding: 0.4rem 0.8rem;
+    background-color: var(--background-color);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
 .profile-price {
-    font-size: 1.25rem;
-    color: #e74c3c;
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    font-weight: 600;
     margin-bottom: 1rem;
 }
 
-.profile-introduction {
-    line-height: 1.8;
-    color: #666;
+/* 介绍区域 */
+.profile-section {
     margin-bottom: 2rem;
 }
 
-.cases-section {
-    margin-top: 2rem;
+.profile-section h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--background-color);
+    padding-bottom: 0.5rem;
 }
 
-.cases-section h2 {
-    color: #2c3e50;
-    margin-bottom: 1rem;
+.profile-intro {
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* 案例列表 */
+.cases-list {
+    display: grid;
+    gap: 1rem;
 }
 
 .case-item {
-    background-color: #f8f9fa;
+    background-color: var(--background-color);
     padding: 1.5rem;
-    border-radius: 5px;
-    margin-bottom: 1rem;
+    border-radius: var(--border-radius);
 }
 
-.case-title {
-    font-weight: bold;
+.case-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.case-item p {
+    color: var(--text-secondary);
+}
+
+/* 操作按钮区域 */
+.detail-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.back-btn {
+    padding: 0.8rem 1.2rem;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.back-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* 联系方式弹窗 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    background-color: var(--card-background);
+    margin: 15% auto;
+    padding: 2rem;
+    width: 90%;
+    max-width: 500px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.close {
+    position: absolute;
+    right: 1.5rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+
+.wechat-info {
+    margin: 2rem 0;
+}
+
+.wechat-id {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-primary);
     margin-bottom: 0.5rem;
 }
 
-.case-description {
-    color: #666;
+.discount-tip {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
 }
 
-/* 响应式调整 */
-@media screen and (max-width: 768px) {
+.modal-actions {
+    margin-top: 2rem;
+}
+
+.close-modal-btn {
+    padding: 0.8rem 1.2rem;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.close-modal-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
     .profile-header {
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: 1fr;
         text-align: center;
     }
 
     .profile-avatar {
-        width: 150px;
-        height: 150px;
+        margin: 0 auto;
+    }
+
+    .profile-tags {
+        justify-content: center;
+    }
+
+    .detail-actions {
+        flex-direction: column;
+    }
+
+    .back-btn, .contact-btn {
+        width: 100%;
+        text-align: center;
     }
 } 

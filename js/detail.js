@@ -32,38 +32,66 @@ class CoachDetail {
     }
 
     renderCoachDetail(coach) {
-        const container = document.querySelector('.coach-profile');
-        container.innerHTML = `
+        const profileHtml = `
             <div class="profile-header">
-                <div class="profile-avatar">
-                    <img src="${coach.avatar}" alt="${coach.name}的头像">
-                </div>
+                <img src="${coach.avatar}" alt="${coach.name}的头像" class="profile-avatar">
                 <div class="profile-info">
-                    <h1 class="profile-name">${coach.name}</h1>
+                    <h1>${coach.name}</h1>
                     <div class="profile-tags">
-                        ${coach.specialties.map(specialty =>
-                            `<span class="tag">${specialty}</span>`
-                        ).join('')}
+                        ${coach.specialties.map(s => `<span class="profile-tag">${s}</span>`).join('')}
                     </div>
-                    <div class="profile-price">
-                        <span>咨询价格：￥${coach.pricePerHour}/小时</span>
-                    </div>
-                    <div class="profile-introduction">
-                        ${coach.introduction}
-                    </div>
+                    <p class="profile-price">咨询价格：${coach.pricePerHour}元/小时</p>
                 </div>
             </div>
-            <div class="cases-section">
+            
+            <div class="profile-section">
+                <h2>个人介绍</h2>
+                <p class="profile-intro">${coach.introduction}</p>
+            </div>
+            
+            <div class="profile-section">
                 <h2>成功案例</h2>
-                ${coach.cases.map(case_ => `
-                    <div class="case-item">
-                        <div class="case-title">${case_.title}</div>
-                        <div class="case-description">${case_.description}</div>
-                    </div>
-                `).join('')}
+                <div class="cases-list">
+                    ${coach.cases.map(c => `
+                        <div class="case-item">
+                            <h3>${c.title}</h3>
+                            <p>${c.description}</p>
+                        </div>
+                    `).join('')}
+                </div>
             </div>
         `;
+        
+        document.querySelector('.coach-profile').innerHTML = profileHtml;
+        this.wechatId = coach.wechat;
     }
+}
+
+function showContactInfo() {
+    const modal = document.getElementById('contactModal');
+    const wechatSpan = document.getElementById('coachWechat');
+    const closeBtn = modal.querySelector('.close');
+    
+    // 从 URL 获取教练 ID
+    const urlParams = new URLSearchParams(window.location.search);
+    const coachId = urlParams.get('id');
+    
+    // 获取教练数据
+    DataLoader.loadCoaches().then(coaches => {
+        const coach = coaches.find(c => c.id === coachId);
+        if (coach) {
+            wechatSpan.textContent = coach.wechat;
+            modal.style.display = 'block';
+        }
+    });
+    
+    // 关闭弹窗
+    closeBtn.onclick = () => modal.style.display = 'none';
+    window.onclick = (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    };
 }
 
 // 初始化详情页
