@@ -13,13 +13,30 @@
             <div class="logo">盖洛普教练管理后台</div>
             <ul class="nav-menu">
                 <li><a href="index.html">返回首页</a></li>
+                <li><a href="https://m.qlchat.com/wechat/page/live/2000014880701342" target="_blank">课程导览</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="admin-content">
         <div class="admin-container">
-            <h1>添加/编辑教练资料</h1>
+            <div class="admin-header">
+                <h1>添加/编辑教练资料</h1>
+                <button id="showCoachesList" type="button">管理现有教练</button>
+            </div>
+            
+            <!-- 教练列表弹窗 -->
+            <div id="coachesListModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>教练列表</h2>
+                        <span class="close">&times;</span>
+                    </div>
+                    <div class="coaches-list">
+                        <!-- 教练列表将通过 JavaScript 动态生成 -->
+                    </div>
+                </div>
+            </div>
             
             <form id="coachForm" class="coach-form">
                 <div class="form-group">
@@ -59,6 +76,12 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="wechat">微信号</label>
+                    <input type="text" id="wechat" name="wechat" required>
+                    <p class="field-tip">用于客户联系，将在详情页展示</p>
+                </div>
+
+                <div class="form-group">
                     <label>成功案例</label>
                     <div id="casesContainer">
                         <div class="case-item">
@@ -78,7 +101,21 @@
             <div class="json-output">
                 <h2>生成的JSON数据</h2>
                 <pre id="jsonOutput"></pre>
-                <button id="copyJson">复制JSON</button>
+                <div class="json-actions">
+                    <button id="copyJson">复制JSON</button>
+                    <p class="update-instructions">
+                        更新步骤：
+                        1. 点击"下载更新后的完整JSON"
+                        2. 将下载的文件重命名为 coaches.json
+                        3. 替换 data/coaches.json 文件
+                        4. 提交到 GitHub:
+                        <code>
+                            git add data/coaches.json
+                            git commit -m "update: 添加新教练"
+                            git push
+                        </code>
+                    </p>
+                </div>
             </div>
         </div>
     </main>
