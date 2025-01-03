@@ -1,0 +1,46 @@
+# 启用 GZIP 压缩
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# 设置缓存控制
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # 图片缓存 1 周
+    ExpiresByType image/jpeg "access plus 1 week"
+    ExpiresByType image/png "access plus 1 week"
+    
+    # CSS 和 JS 缓存 1 天
+    ExpiresByType text/css "access plus 1 day"
+    ExpiresByType application/javascript "access plus 1 day"
+    
+    # JSON 数据缓存 1 小时
+    ExpiresByType application/json "access plus 1 hour"
+</IfModule>
+
+# 添加安全头
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    
+    # 允许跨域访问
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>
+
+# 错误页面
+ErrorDocument 404 /404.html
+
+# URL 重写规则
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    
+    # 如果请求的不是真实文件或目录
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    
+    # 重定向到 index.html
+    RewriteRule ^(.*)$ index.html [L]
+</IfModule> 
