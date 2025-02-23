@@ -1,6 +1,6 @@
 class CoachFilter {
     constructor() {
-        this.specialtyTags = document.querySelectorAll('.specialty-tags input');
+        this.specialtyTags = document.querySelectorAll('.tag-item input');
         this.priceFilter = document.getElementById('price-filter');
         this.coaches = [];
 
@@ -27,39 +27,34 @@ class CoachFilter {
     }
 
     filterCoaches() {
-        // 获取选中的专长
         const selectedSpecialties = Array.from(this.specialtyTags)
             .filter(tag => tag.checked)
             .map(tag => tag.value);
 
-        // 获取选中的价格范围
-        const priceRange = this.priceFilter.value;
+        const selectedPriceRange = this.priceFilter.value;
 
-        // 筛选教练
-        let filteredCoaches = this.coaches;
+        const filteredCoaches = this.coaches.filter(coach => {
+            const matchesSpecialty = selectedSpecialties.length === 0 || coach.specialties.some(specialty => selectedSpecialties.includes(specialty));
+            const matchesPrice = this.filterByPrice(coach.pricePerHour, selectedPriceRange);
+            return matchesSpecialty && matchesPrice;
+        });
 
-        // 按专长筛选
-        if (selectedSpecialties.length > 0) {
-            filteredCoaches = filteredCoaches.filter(coach =>
-                coach.specialties.some(specialty =>
-                    selectedSpecialties.includes(specialty)
-                )
-            );
-        }
-
-        // 按价格筛选
-        if (priceRange !== 'all') {
-            const [min, max] = priceRange.split('-').map(Number);
-            filteredCoaches = filteredCoaches.filter(coach => {
-                if (priceRange === '2000+') {
-                    return coach.pricePerHour >= 2000;
-                }
-                return coach.pricePerHour >= min && coach.pricePerHour <= (max || Infinity);
-            });
-        }
-
-        // 渲染筛选结果
         this.renderCoaches(filteredCoaches);
+    }
+
+    filterByPrice(price, range) {
+        switch (range) {
+            case '0-500':
+                return price < 500;
+            case '500-1000':
+                return price >= 500 && price < 1000;
+            case '1000-2000':
+                return price >= 1000 && price < 2000;
+            case '2000+':
+                return price >= 2000;
+            default:
+                return true; // 全部价格
+        }
     }
 
     renderCoaches(coaches) {

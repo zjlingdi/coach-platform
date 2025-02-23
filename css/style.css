@@ -173,6 +173,7 @@ body {
     margin-bottom: 1.5rem;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -225,3 +226,153 @@ body {
         flex: 1; /* 让价格区间筛选占据剩余空间 */
     }
 } 
+
+/* 筛选栏样式 */
+.filter-section {
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 60px;
+    z-index: 50;
+}
+
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.filter-header h2 {
+    font-size: 18px;
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.filter-controls {
+    display: flex;
+    gap: 12px;
+}
+
+.filter-controls button {
+    padding: 8px 16px;
+    border-radius: 16px;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.filter-reset {
+    background: #f5f5f5;
+    color: #666;
+    border: 1px solid #e0e0e0;
+}
+
+.filter-confirm {
+    background: #007AFF;
+    color: white;
+    border: 1px solid #007AFF;
+}
+
+.filter-group {
+    padding: 16px 24px;
+}
+
+.filter-category {
+    margin-bottom: 24px;
+}
+
+.filter-category h3 {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+/* 标签云样式 */
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.tag-item {
+    position: relative;
+}
+
+.tag-item input {
+    position: absolute;
+    opacity: 0;
+}
+
+.tag-text {
+    display: block;
+    padding: 8px 16px;
+    background: #f5f5f5;
+    border-radius: 16px;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+.tag-item input:checked + .tag-text {
+    background: rgba(0, 122, 255, 0.1);
+    border-color: #007AFF;
+    color: #007AFF;
+    font-weight: 500;
+}
+
+/* 自定义下拉菜单 */
+.price-selector {
+    position: relative;
+    max-width: 240px;
+}
+
+.custom-select {
+    width: 100%;
+    padding: 12px 40px 12px 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    appearance: none;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23007AFF'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") 
+        no-repeat right 12px center/16px;
+    font-size: 14px;
+    color: #1a1a1a;
+}
+
+.custom-select:focus {
+    border-color: #007AFF;
+    box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.2);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .filter-section {
+        top: 56px;
+    }
+
+    .filter-header {
+        padding: 12px 16px;
+    }
+
+    .filter-controls button {
+        padding: 6px 12px;
+    }
+
+    .tag-cloud {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 8px;
+    }
+
+    .tag-text {
+        white-space: nowrap;
+    }
+
+    .price-selector {
+        max-width: 100%;
+    }
+}

@@ -27,28 +27,48 @@
     <!-- 搜索筛选区域 -->
     <section class="filter-section">
         <div class="filter-container">
-            <div class="section-title">
+            <div class="filter-header">
                 <h2>寻找适合你的教练</h2>
-            </div>
-            <div class="filter-group">
-                <h3>擅长领域</h3>
-                <div class="specialty-tags">
-                    <label class="tag"><input type="checkbox" value="领导力">领导力</label>
-                    <label class="tag"><input type="checkbox" value="团队管理">团队管理</label>
-                    <label class="tag"><input type="checkbox" value="个人成长">个人成长</label>
-                    <label class="tag"><input type="checkbox" value="职业发展">职业发展</label>
+                <div class="filter-controls">
+                    <!-- <button class="filter-reset">重置</button> -->
+                    <!-- <button class="filter-confirm">确认</button> -->
                 </div>
             </div>
+            
             <div class="filter-group">
-                <h3>价格区间</h3>
-                <div class="price-range">
-                    <select id="price-filter">
-                        <option value="all">全部价格</option>
-                        <option value="0-500">500元/小时以下</option>
-                        <option value="500-1000">500-1000元/小时</option>
-                        <option value="1000-2000">1000-2000元/小时</option>
-                        <option value="2000+">2000元/小时以上</option>
-                    </select>
+                <div class="filter-category">
+                    <h3>擅长领域</h3>
+                    <div class="tag-cloud">
+                        <label class="tag-item">
+                            <input type="checkbox" name="expertise" value="领导力">
+                            <span class="tag-text">领导力</span>
+                        </label>
+                        <label class="tag-item">
+                            <input type="checkbox" name="expertise" value="团队管理">
+                            <span class="tag-text">团队管理</span>
+                        </label>
+                        <label class="tag-item">
+                            <input type="checkbox" name="expertise" value="个人成长">
+                            <span class="tag-text">个人成长</span>
+                        </label>
+                        <label class="tag-item">
+                            <input type="checkbox" name="expertise" value="职业发展">
+                            <span class="tag-text">职业发展</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="filter-category">
+                    <h3>价格区间</h3>
+                    <div class="price-selector">
+                        <select class="custom-select" id="price-filter">
+                            <option value="all">全部价格</option>
+                            <option value="0-500">500元/小时以下</option>
+                            <option value="500-1000">500-1000元/小时</option>
+                            <option value="1000-2000">1000-2000元/小时</option>
+                            <option value="2000+">2000元/小时以上</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
