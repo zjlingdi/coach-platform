@@ -34,3 +34,124 @@
         grid-template-columns: 1fr;
     }
 } 
+/* 移动端导航样式 */
+.menu-toggle {
+    display: none;
+    position: fixed;
+    left: 15px;
+    top: 15px;
+    z-index: 1000;
+    background: none;
+    border: none;
+    padding: 10px;
+}
+
+.hamburger {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: #333;
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    transition: all 0.3s;
+}
+
+.hamburger::before { top: -8px; }
+.hamburger::after { top: 8px; }
+
+.nav-menu {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    height: 100vh;
+    width: 250px;
+    background: #fff;
+    box-shadow: 2px 0 15px rgba(0,0,0,0.1);
+    padding: 60px 20px 20px;
+    transition: left 0.3s;
+    z-index: 999;
+}
+
+.nav-menu.active {
+    left: 0;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-container {
+        justify-content: center;
+        padding: 15px;
+    }
+    
+    .logo {
+        margin-left: 40px;
+    }
+    
+    .nav-menu {
+        padding-top: 80px;
+    }
+
+    /* 筛选栏优化 */
+    .specialty-tags {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .tag {
+        padding: 10px;
+        border-radius: 20px;
+        border: 1px solid #eee;
+        text-align: center;
+    }
+
+    .price-range select {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+    }
+}
+
+/* 桌面端样式 */
+@media (min-width: 769px) {
+    .nav-menu {
+        position: static;
+        display: flex;
+        height: auto;
+        width: auto;
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .nav-menu li {
+        margin: 0 15px;
+    }
+}
+
+/* 通用优化 */
+.filter-container {
+    border-radius: 12px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.nav-menu a:hover {
+    background: #f8f9fa;
+    transform: translateX(3px);
+}
+
+body {
+    overflow-x: hidden;
+}

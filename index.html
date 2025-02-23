@@ -11,7 +11,7 @@
     <!-- 顶部导航栏 -->
     <header class="header">
         <nav class="nav-container">
-            <div class="logo">盖洛普教练展示</div>
+            <div class="logo">盖洛普教练展示平台</div>
             <button class="menu-toggle" aria-label="切换菜单">
                 <span class="hamburger"></span>
             </button>
@@ -26,10 +26,10 @@
 
     <!-- 搜索筛选区域 -->
     <section class="filter-section">
+        <!-- 保持原有筛选内容不变 -->
         <div class="filter-container">
             <div class="section-title">
-                <h2>盖洛普教练展示平台</h2>
-                <p class="subtitle">专业教练助您成长</p>
+                <h2>寻找适合你的教练</h2>
             </div>
             <div class="filter-group">
                 <h3>擅长领域</h3>
@@ -58,18 +58,52 @@
     <!-- 教练列表展示区 -->
     <main class="main-content">
         <div class="coaches-grid">
+            <!-- 原有教练内容保持不变 -->
         </div>
     </main>
 
     <!-- 页脚 -->
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 一洲优势大院教练展示平台 版权所有</p>
+            <p>&copy; 一洲优势大院 版权所有</p>
         </div>
     </footer>
+
+
+    <!-- 在原有JS文件前添加新脚本 -->
+    <script>
+    // mobile-menu.js
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        // 汉堡菜单切换
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // 点击外部关闭菜单
+        document.addEventListener('click', (e) => {
+            if (navMenu.classList.contains('active')) { // 修复缺失的右括号
+                navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+        });
+
+        // 窗口resize处理
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+        });
+    });
+    </script>
 
     <script src="js/data-loader.js"></script>
     <script src="js/filter.js"></script>
     <script src="js/main.js"></script>
 </body>
-</html> 
+</html>

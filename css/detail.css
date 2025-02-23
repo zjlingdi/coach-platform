@@ -133,7 +133,7 @@
 .modal-content {
     position: relative;
     background-color: var(--card-background);
-    margin: 15% auto;
+    margin: 20% auto;
     padding: 2rem;
     width: 90%;
     max-width: 500px;
@@ -142,17 +142,17 @@
     text-align: center;
 }
 
-.close {
-    position: absolute;
-    right: 1.5rem;
-    top: 1rem;
+.modal-content h2 {
     font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--text-secondary);
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
 }
 
 .wechat-info {
-    margin: 2rem 0;
+    background-color: var(--background-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin: 1.5rem 0;
 }
 
 .wechat-id {
@@ -162,7 +162,7 @@
     margin-bottom: 0.5rem;
 }
 
-.discount-tip {
+.discount-note {
     font-size: 0.9rem;
     color: var(--text-secondary);
     margin-top: 0.5rem;
@@ -172,7 +172,7 @@
     margin-top: 2rem;
 }
 
-.close-modal-btn {
+.modal-actions .back-btn {
     padding: 0.8rem 1.2rem;
     background-color: var(--background-color);
     color: var(--text-primary);
@@ -180,9 +180,11 @@
     border-radius: var(--border-radius);
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 100%;
+    font-weight: 500;
 }
 
-.close-modal-btn:hover {
+.modal-actions .back-btn:hover {
     background-color: #e0e0e0;
 }
 
