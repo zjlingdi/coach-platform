@@ -35,6 +35,7 @@
                 </div>
             </div>
             
+            <div class="filter-group">
                 <div class="filter-category">
                     <h3>擅长领域</h3>
                     <div class="specialty-tags"> <!-- 修改类名保持与CSS一致 -->
@@ -103,7 +104,7 @@
 
         // 点击外部关闭菜单
         document.addEventListener('click', (e) => {
-            if (navMenu.classList.contains('active')) { // 修复缺失的右括号
+            if (navMenu.classList.contains('active')) { 
                 navMenu.classList.remove('active');
                 menuToggle.classList.remove('active');
             }

@@ -425,3 +425,65 @@ body {
         grid-template-columns: repeat(4, 1fr); /* 4列布局 */
     }
 }
+
+/* 在style.css原有内容基础上添加 */
+@media (max-width: 768px) {
+    /* 筛选器横向排列优化 */
+    .specialty-tags {
+        display: flex !important;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--primary-color) transparent;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+        gap: 10px;
+    }
+
+    .specialty-tags::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .specialty-tags::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: 2px;
+    }
+
+    .tag-item {
+        flex: 0 0 45%;
+        min-width: 120px;
+        margin: 0 !important;
+    }
+
+    .tag-text {
+        padding: 10px 12px !important;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    /* 教练列表两列布局 */
+    .coaches-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+    }
+
+    .coach-avatar img {
+        height: 180px !important;
+    }
+
+    .coach-card {
+        box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+}
+
+/* 小屏手机优化 */
+@media (max-width: 400px) {
+    .tag-item {
+        flex: 0 0 48%;
+    }
+    
+    .coach-avatar img {
+        height: 160px !important;
+    }
+}
