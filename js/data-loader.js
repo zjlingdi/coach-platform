@@ -7,8 +7,8 @@ class DataLoader {
                 "coaches": [
                     {
                         "id": "1",
-                        "name": "张教练",
-                        "avatar": "images/coaches/3.jpg",
+                        "name": "子墨",
+                        "avatar": "images/coaches/1.jpg",
                         "specialties": ["领导力", "团队管理"],
                         "pricePerHour": 800,
                         "introduction": "专注于领导力培训和团队建设的资深教练，拥有10年以上企业管理经验。",
@@ -22,10 +22,10 @@ class DataLoader {
                     },
                     {
                         "id": "2",
-                        "name": "李教练",
-                        "avatar": "images/coaches/3.jpg",
-                        "specialties": ["个人成长", "职业发展"],
-                        "pricePerHour": 600,
+                        "name": "一洲",
+                        "avatar": "images/coaches/2.jpg",
+                        "specialties": ["个人成长", "职业发展", "领导力"],
+                        "pricePerHour": 1000,
                         "introduction": "致力于帮助个人发现潜能，规划职业发展路径的职业发展教练。",
                         "wechat": "coach_li456",
                         "cases": [
