@@ -471,26 +471,6 @@ body {
 
 /* 在style.css原有内容基础上添加 */
 @media (max-width: 768px) {
-    /* 筛选器横向排列优化 */
-    .specialty-tags {
-        display: flex !important;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        scrollbar-width: thin;
-        scrollbar-color: var(--primary-color) transparent;
-        padding-bottom: 8px;
-        -webkit-overflow-scrolling: touch;
-        gap: 10px;
-    }
-
-    .specialty-tags::-webkit-scrollbar {
-        height: 4px;
-    }
-
-    .specialty-tags::-webkit-scrollbar-thumb {
-        background: var(--primary-color);
-        border-radius: 2px;
-    }
 
     .tag-item {
         flex: 0 0 45%;
