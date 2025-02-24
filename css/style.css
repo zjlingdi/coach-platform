@@ -84,7 +84,19 @@ body {
 }
 
 .filter-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 1.5rem;
+}
+
+.filter-category {
+    flex: 1;
+    margin-right: 1rem;
+}
+
+.filter-category:last-child {
+    margin-right: 0;
 }
 
 .filter-group h3 {
@@ -95,19 +107,50 @@ body {
 .specialty-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 8px;
 }
 
-.tag {
-    padding: 0.4rem 0.8rem;
-    background-color: var(--background-color);
-    border-radius: 20px;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
+.tag-item {
+    display: inline-block;
 }
 
-.tag:hover {
-    background-color: #e0e0e0;
+.tag-text {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #f5f5f5;
+    border-radius: 16px;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+.tag-item input:checked + .tag-text {
+    background: rgba(0, 122, 255, 0.1);
+    border-color: #007AFF;
+    color: #007AFF;
+    font-weight: 500;
+}
+
+.price-selector {
+    max-width: 240px;
+}
+
+.custom-select {
+    width: 100%;
+    padding: 12px 40px 12px 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    appearance: none;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23007AFF'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") 
+        no-repeat right 12px center/16px;
+    font-size: 14px;
+    color: #1a1a1a;
+}
+
+.custom-select:focus {
+    border-color: #007AFF;
+    box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.2);
 }
 
 /* 教练列表区域样式 */
@@ -485,5 +528,12 @@ body {
     
     .coach-avatar img {
         height: 160px !important;
+    }
+}
+
+/* 隐藏桌面版的汉堡菜单 */
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none;
     }
 }
