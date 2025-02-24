@@ -29,6 +29,10 @@
         <div class="filter-container">
             <div class="filter-header">
                 <h2>寻找适合你的教练</h2>
+                <button class="filter-toggle">
+                    <span class="toggle-icon">▼</span>
+                    <span class="toggle-text">筛选</span>
+                </button>
             </div>
             
             <div class="filter-group">
@@ -120,5 +124,17 @@
     <script src="js/data-loader.js"></script>
     <script src="js/filter.js"></script>
     <script src="js/main.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const filterToggle = document.querySelector('.filter-toggle');
+        const filterGroup = document.querySelector('.filter-group');
+        
+        filterToggle.addEventListener('click', () => {
+            filterGroup.classList.toggle('active');
+            filterToggle.classList.toggle('active');
+        });
+    });
+    </script>
 </body>
 </html>

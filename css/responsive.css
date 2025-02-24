@@ -18,6 +18,40 @@
     .coaches-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
+
+    .filter-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .filter-toggle {
+        display: flex;
+        align-items: center;
+        padding: 8px 12px;
+        background: none;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    .filter-toggle .toggle-icon {
+        margin-right: 5px;
+        transition: transform 0.3s;
+    }
+    
+    .filter-toggle.active .toggle-icon {
+        transform: rotate(180deg);
+    }
+    
+    .filter-group {
+        display: none;
+        transition: all 0.3s ease;
+    }
+    
+    .filter-group.active {
+        display: block;
+    }
 }
 
 /* 移动设备 */
@@ -84,6 +118,9 @@
 
 .nav-menu.active {
     left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* 移动端适配 */
@@ -139,6 +176,10 @@
 
     .nav-menu li {
         margin: 0 15px;
+    }
+
+    .filter-toggle {
+        display: none;
     }
 }
 

@@ -73,8 +73,8 @@ body {
 /* 筛选区域样式 */
 .filter-section {
     background-color: #fff;
-    padding: 2rem 0;
-    margin-bottom: 2rem;
+    /* padding: 2rem 0;
+    margin-bottom: 2rem; */
 }
 
 .filter-container {
